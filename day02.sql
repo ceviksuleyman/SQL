@@ -106,5 +106,23 @@ DELETE FROM ogrenciler Where isim= 'Nesibe Yilmaz' or isim = 'Mustafa Bak';
 delete from ogrenciler where isim = 'Ali Can' or id=123;
 -- Tablodaki tum verileri silelim
 delete from ogrenciler
+
 --DELETE - TRUNCATE -
+-- TRUNCATE komutu Delete komutu gibi bir verilerin tamamini siler, ancak secmeli silme yapmaz.
+
+select * from ogrenciler;
+truncate table ogrenciler;
+
+--DDL - Data Definition Lang.
+--CREATE - ALTER - DROP
+-- ALTER TABLE --
+-- ALTER TABLE tabloda ADD, TYPE, SET ,RENAME veya DROP COLUMNS islemleri icin kullanilir.
+
+select * from personel;
+--Soru: personel tablosuna cinsiyet varchar(20) ve yas int seklinde yeni sutunlar ekleyin.
+
+alter table personel add cinsiyet varchar(20),add yas int;
+
+--Soru: personel tablosundan sirket field'ini  silin
+
 
