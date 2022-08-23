@@ -118,11 +118,33 @@ truncate table ogrenciler;
 -- ALTER TABLE --
 -- ALTER TABLE tabloda ADD, TYPE, SET ,RENAME veya DROP COLUMNS islemleri icin kullanilir.
 
-select * from personel;
+select * from isciler;
 --Soru: personel tablosuna cinsiyet varchar(20) ve yas int seklinde yeni sutunlar ekleyin.
 
 alter table personel add cinsiyet varchar(20),add yas int;
 
 --Soru: personel tablosundan sirket field'ini  silin
+alter table personel drop column sirket;
+
+-- personel tablosundaki sehir sutunun adini ulke olarak degistirelim
+alter table personel rename column sehir to ulke;
+
+--personel tablosunun adini isciler olarak degistirelim
+alter table personel rename to isciler;
+
+--DDL - DROP komutu
+drop table isciler;
+
+--CONSTRANINT - Kisitlamalar
+--Primary Key --> Bir sutunun null icermemesini ve sutundaki verilerin benzersiz(unique) olmasini saglar.(NOT NULL -UNIGUE)
+--Foreign Key --> Baska bir tablodaki Primary Key'i referans gostermek icin kullanilir boylelikle tablolar arasinda iliski kurmus oluruz.
+--UNIQUE --> Bir sutundaki tum degerlerin tum degerlerin benzersiz yani tek olmasini saglar.
+
+--NOT NULL --> Bir sutunun NULL icermemesini yani bos olmamasini saglar,Not Null kisitlamasi icin COONSTRAINT ismi TANIMLANMAZ.
+--Bu kisitlama veri turunden hemen sonra yerlestirilir.
+
+--CHECK --> Bir sutuna yerlestirilebilecek deger araligini sinirlamak icin kullanilir.
+
+
 
 
