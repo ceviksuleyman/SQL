@@ -116,7 +116,7 @@ truncate table ogrenciler;
 --DDL - Data Definition Lang.
 --CREATE - ALTER - DROP
 -- ALTER TABLE --
--- ALTER TABLE tabloda ADD, TYPE, SET ,RENAME veya DROP COLUMNS islemleri icin kullanilir.
+-- ALTER TABLE tabloda ADD, TYPE(MySQL de MODIFY olarak kullanilir), SET ,RENAME veya DROP COLUMNS islemleri icin kullanilir.
 
 select * from isciler;
 --Soru: personel tablosuna cinsiyet varchar(20) ve yas int seklinde yeni sutunlar ekleyin.
