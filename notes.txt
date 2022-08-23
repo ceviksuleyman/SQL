@@ -1,0 +1,101 @@
+
+SQL (Structured Query Language) => Yapilandirilmis Sorgu Dili
+
+Veritabani NEDiR ?
+-> Genellikle elektronik olarak bilgisayar sisteminde depolanan yapilandirilmis(structured)
+bilgi veya veriden olusan duzenli bir koleksiyondur.
+-> Veritabani Yonetim Sistemi DBMS(DataBaseManagementSystem) ile kontrol edilir.
+-> Cogu veritabaninda veri ve yazma ve sorgulama icin yapilandirilmis sorgu dili SQL kullanilir.
+
+DATABASE'in FAYDALARI NELERDIR ?
+=> Create,Read,Update,Delete (CRUD)
+=> Yuksek miktarda bilgi depolama
+=> Girisin kolay ve kontrollu olmasi
+=> Guvenlik
+=> Dataya ulasim kolayligi
+
+Veritabani Yonetim Sistemi(Data Base Management System)
+-> CRUD islemlerini duzenler
+-> Data guvenligini saglar
+-> Diger uygulamalarla(application) iletisimi saglar.
+-> Sorgular olusturur ve sorgular iletir.
+-> Raporlar olusturur ve raporlari isletir.
+
+SQL KOMUTLARI (4 Gruba Ayrilir)
+1->Veri Sorgulama Dili(Data Query Language -DQL)
+SELECT => Komutu ile veritabaninda yer alan mevcut kayitlarin bir kismini veya tamamini
+tanimlanan kosullara bagli olarak alir. Veri tabanindaki verileri alir.
+
+2-> Veri Kullanma Dili(Data Manipulation Lanquage - DML)
+DML komutlari ile veritabanlarinda bulunan verilere islem yapilir.
+INSERT => Veritabanina yeni veri ekler.
+UPDATE => Veritabanindaki verileri gunceller.
+DELETE => Veritabanindaki verileri siler.
+
+3-> Veri Tanimlama Dili(Data Definition Language - DDL)
+DDL komutlari ile veri tabani ve tablolari olusturma,degistirme ve silme islemleri yapilir.
+CREATE => Bir veritabani veya veritabani icinde tablo olusturur.
+ALTER  => Bir veritabani veya veritabani icindeki tabloyu gunceller.
+DROP   => Bir veritabani veya veri tabani icindeki tabloyu siler.
+
+4-> Veri Kontrol Dili(Data Control Language - DCL)
+Kullanicilara varitabani ve tablolar icin yetki verilir veya geri alinir.
+GRANT  => Bir kullaniciya yetki vermek icin kullanilir.
+REVOKE => Kullaniciya verilen yetkiyi geri almak icin kullanilir.
+
+Primary Key
+(birincil anahtar)her satir icin vekil/tanimlayici(identify) gorevi gorur,kisitlamadir(constraint) ve essizdir(Unique).
+-> Bir tabloda en fazla bir tane olabilir.
+-> Unique(benzersiz) olmadilir ama her unique data Primary Key degildir.
+-> Her turlu datayi icerebilir. sayi String..
+-> Her tabloda Primary Key olmasi ZORUNLU DEGILDIR.
+
+Foreign Key
+-> iki tablo arasinda relation olusturmak icin kullanilir.Baska bir tablodaki Primary Key ile iliskilendirilmis olmalidir.
+-> Bir tabloda birden fazla Foreign Key olabilir,Null degeri kabul eder.
+-> Foreign Key olarak tanimlanan field'da tekrarlar olabilir.
+=> Foreign Key,degerleri farkli bir tablodaki Primary Key ile eslesen bir sutun veya sutunlarin birlesimidir.
+
+Natural Key
+-> TCNO,email vs. dis dunyadaki gercek verileri temsil ediyorsa Natural Key denir.
+
+Composite Key
+-> Birden fazla field(kolon)'in kombinasyonu ile olusturulur.
+
+
+Primary Key ve Unique Key arasindaki farklar
+Primary Key => Bir tabloda en fazla 1 tane olur ,Null deger kabul etmez.
+Unique Key  => Bir tabloda birden fazla olabilir ,Null degeri kabul eder.
+
+Ortak Ozellikleri => Dublication(cift kullanim)'a izin vermez.
+
+
+SQL DATA TYPES
+String Data Types
+-> char(size),max boyut 2000 byte olur, 1 karakter 1 byte kullanir."size" database'e eklenecek karakter sayisidir.
+"char" data tipinden uzunlugu sabit datalari depolar.
+-> varchar(size), max boyutu 4000 byte olur 1 karakter 1 byte kullanir."size" database'e eklenecek max karakter sayisidir.
+
+-> nchar(size), max boyut 2000 1 karakter 2 byte uzunlugu belli stringler farkli dillerdeki karakterler icin.(uluslararasi)
+-> nvarchar(size), max boyut 8000 byte 1 karakter 2 byte Unicode degerleri icin degisken uzunluktaki stringler icin.
+
+Numeric Data Types
+-> number(p,s),
+Precision(p) can range from 1 to 38 -> virgulden once
+Scale(s) can range from -84 to 127 -> virgulden sonra
+
+.TINYINT => -128 - 127 arasi degerler
+.SMALLINT => -32.768 - 32.767 arasi degerler
+.MEDIUMINT => -8.388.608 - 8.388.607
+.INT => bizim kullanacagimiz
+.BIGINT =>
+REAL => ondalikli saylar icin
+SERIAL => sirali
+
+DATE => tarih ve zamani depolamak icin kullanilir. standart "dd-MMM-yy" 12-Apr-20
+ALTER SESSION SET NLS_DATE_FORMAT="YYYY-MM-DD" kodu ile degistirilebilir.
+
+BLOB => Binary Large OBjects,resim,video,ses gibi datalari binary formatina cevirerek depolar.
+
+
+
