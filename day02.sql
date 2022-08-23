@@ -135,16 +135,33 @@ alter table personel rename to isciler;
 --DDL - DROP komutu
 drop table isciler;
 
+
 --CONSTRANINT - Kisitlamalar
 --Primary Key --> Bir sutunun null icermemesini ve sutundaki verilerin benzersiz(unique) olmasini saglar.(NOT NULL -UNIGUE)
 --Foreign Key --> Baska bir tablodaki Primary Key'i referans gostermek icin kullanilir boylelikle tablolar arasinda iliski kurmus oluruz.
+
 --UNIQUE --> Bir sutundaki tum degerlerin tum degerlerin benzersiz yani tek olmasini saglar.
 
 --NOT NULL --> Bir sutunun NULL icermemesini yani bos olmamasini saglar,Not Null kisitlamasi icin COONSTRAINT ismi TANIMLANMAZ.
 --Bu kisitlama veri turunden hemen sonra yerlestirilir.
 
 --CHECK --> Bir sutuna yerlestirilebilecek deger araligini sinirlamak icin kullanilir.
+CREATE TABLE calisanlar
+(
+id CHAR(5) PRIMARY KEY, -- not null + unique
+isim VARCHAR(50) UNIQUE,
+maas int NOT NULL,
+ise_baslama DATE
+);
 
+create table calisanlar2(
+id CHAR(5), 
+isim VARCHAR(50),
+maas int NOT NULL,
+ise_baslama DATE,
+	CONSTRAINT pk_id primary key(id),
+	CONSTRAINT ism_unq UNIQUE(isim)
+);
 
 
 
