@@ -115,9 +115,37 @@ ADD CONSTRAINT sinir CHECK (yazili_notu > 60);
 
 INSERT INTO talebeler VALUES(128, 'Suleyman Cevik', 'Can',45);-- 60 not siniri oldugu icin eklemedi.
 
+------------------------------------------------------------------------------------
 
 
+-- PRIMARY KEY ATAMA
+create table ogrenciler(
+	id int,
+	isim varchar(45),
+	adres varchar(100),
+	sinav_notu int
+);
+
+Create table ogrenci_adres
+AS
+SELECT id, adres from ogrenciler;
+
+select * from ogrenciler;
+select * from ogrenci_adres;
+--Tablodaki bir sutuna PRIMARY KEY ekleme *******************************
+ALTER TABLE  ogrenciler
+Add Primary Key(id);
+
+-- Primary Olusturmada 2. YONTEM
+Alter Table ogrenciler
+Add Constraint pk_id Primary Key(id);
+
+-- PK'DAN SONRA FOREIGN KEY ATAMASI 
+
+Alter Table ogrenci_adres
+Add Foreign Key(id) References ogrenciler;-- Child tabloyu parent tablodan olusturdugumuz icin kolon adi vermedik
 
 
-
+-- Primary Key'i Constraint silme
+Alter Table ogrenciler Drop Constraint pk_id;
 
