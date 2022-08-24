@@ -58,8 +58,19 @@ drop table calisanlar; -- Parent oldugu icin calisanlar tabloyu silemez.
 
 -- ON DELETE CASCADE 
 -- Her defasinda once child tablodaki veirleri silmek yerine ON DELETE CASCADE silme ozelligini aktif hale getirebiliriz.
+-- Bunun icin FK olan satirin en sonuna ON DELETE CASCADE komutunu yazmamiz yeterlidir.
+CREATE TABLE talebeler(
+	id CHAR(3) primary key,
+	isim VARCHAR(50),
+	veli_isim VARCHAR(50),
+	yazili_notu int
+);
+INSERT INTO talebeler VALUES(123, 'Ali Can', 'Hasan',75);
+INSERT INTO talebeler VALUES(124, 'Merve Gul', 'Ayse',85);
+INSERT INTO talebeler VALUES(125, 'Kemal Yasa', 'Hasan',85);
+INSERT INTO talebeler VALUES(126, 'Nesibe Yılmaz', 'Ayse',95);
+INSERT INTO talebeler VALUES(127, 'Mustafa Bak', 'Can',99);
 
-
-
+select * from talebeler;
 
 
