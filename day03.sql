@@ -239,7 +239,8 @@ Select * From personel Where isim Like 'A%';
 -- TASK : ismi t harfi ile biten personeli listele
 Select * From personel Where isim Like '%t';
 
-
+-- TASK : isminin 2. harfi e olan personeli listeleyiniz.
+Select * From personel Where isim like '_e%';
 
 
 
