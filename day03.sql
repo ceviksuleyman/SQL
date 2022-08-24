@@ -205,12 +205,43 @@ Select * From personel Where maas = 70000 OR isim = 'Sena Beyaz'; -- iki sarti b
 -----------------*************************************------------------------********************-
 /*
 => IN : Birden fazla mantiksal ifade ile tanimlayabilecegimiz durumlari tek komutta yazabilme imkani verir.
-Farkli sutunlar icin IN KULLANILAMAZ
+!! Farkli sutunlar icin IN KULLANILAMAZ
 */
 -- TASK : id'si 1001, 1002 ve 1004 olan personelin bilgilerini listele
 Select * From personel Where id = '1001' or id = '1002' or id = '1004';
 -- 2.Yontem
 Select * From personel Where id IN('1001','1002','1004');
+
+
+-- TASK : maasi sadece 70000, 100000 olan personeli listele
+Select * From personel Where maas in('70000','100000');
+
+
+/*
+SELECT - LIKE kosulu
+LIKE -> Sorgulama yaparken belirli (Pattern)kalip ifadeleri kullanabilmemizi saglar.
+ILIKE -> Sorgulama yaparken buyuk/kucuk harfe duyarsiz olarak eslestirir.
+
+-Isaret Olarak Karsiliklari-
+LIKE -> ~~ 
+ILIKE -> ~~*
+NOT LIKE -> !~~
+NOT ILIKE -> !~~*
+
+% -> 0 veya daha fazla karakteri belirtir.
+_ -> Tek bir karakteri belirtir.
+*/
+
+-- TASK : ismi A harfi ile baslayan personeli listele
+Select * From personel Where isim Like 'A%';
+
+
+-- TASK : ismi t harfi ile biten personeli listele
+Select * From personel Where isim Like '%t';
+
+
+
+
 
 
 
