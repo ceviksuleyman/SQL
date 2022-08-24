@@ -228,10 +228,30 @@ Create Table adresler(
 	cadde varchar(30),
 	sehir varchar(20),
 	CONSTRAINT id_pk foreign key (adres_id) references calisanlar(id) -- adres_id  calisanlar id ye baglandi
-);
+);--CONSTRAINT id_pk bu olmadan da olur kendisi bi isim atar
+
 INSERT INTO adresler VALUES('10003','Mutlu Sok', '40.Cad.','IST');
 INSERT INTO adresler VALUES('10003','Can Sok', '50.Cad.','Ankara');
 INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
 
 select * from adresler;
+
+
+INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep');
+--Parent tabloda olmayan id ile child tabloya ekleme yapamayiz.
+
+INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep');-- foreign key'e null deger ekledim.
+
+--calisanlar id ile adresler tablosundaki adres_id ile eslesenlere bakmaak icin
+select * from calisanlar, adresler Where calisanlar.id = adresler.adres_id;
+
+ 
+--Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde tabloyu silmez once child tabloyu silmek gerekir.
+Drop Table calisanlar;
+
+
+
+
+
+
 
