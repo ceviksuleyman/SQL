@@ -73,4 +73,51 @@ INSERT INTO talebeler VALUES(127, 'Mustafa Bak', 'Can',99);
 
 select * from talebeler;
 
+CREATE TABLE notlar(
+	talebe_id char(3),
+	ders_adi varchar(30),
+	yazili_notu int,
+	CONSTRAINT notlar_fk FOREIGN KEY (talebe_id) REFERENCES talebeler(id)
+	on delete cascade --Parent tablodan veri silinince direk burdan da silinecek.
+);
+
+INSERT INTO notlar VALUES ('123','kimya',75);
+INSERT INTO notlar VALUES ('124', 'fizik',65);
+INSERT INTO notlar VALUES ('125', 'tarih',90);
+INSERT INTO notlar VALUES ('126', 'Matematik',90);
+
+select * from talebeler;
+select * from notlar;
+
+select * from talebeler, notlar Where talebeler.id = notlar.talebe_id; -- Parent ve child tabloyu birlikte gosterir.
+
+
+Delete from notlar Where talebe_id = '123'; -- child'den silince parentten silmez.
+Delete from talebeler Where id = '126'; --Parent'ten silince child'den da direk sildi On Delete Cascade ile notlar tablosunu olusturdugumuz icin
+
+Delete from talebeler; -- Parent'ten veriler silinince child'den de silinmis oldu
+
+Drop table talebeler Cascade;-- Parent tabloyu kaldirmak istersek DROP TABLE tablo_adi'dan sonra CASCADE komutunu kullaniriz.
+
+
+
+-- TASK : Talebeler tablosundaki isim sutununa  NOT NULL kisitlamasi ekleyiniz ve veri tipini varchar(30) olarak degistirin.
+Alter Table talebeler 
+Alter column isim Type varchar(30), --data turunu degistirdi
+Alter column isim Set Not NULL; -- isim sutununa NOt Null kisiti ekledi
+
+
+-- TASK : Talebeler tablosundaki yazili_notu sutununa 60 dan buyuk rakam girilebilsin
+
+Alter Table talebeler
+ADD CONSTRAINT sinir CHECK (yazili_notu > 60);
+-- CHECK => kisitlamasi ile tablodaki istedigimiz sutunu sinirlandirabiliriz.
+
+INSERT INTO talebeler VALUES(128, 'Suleyman Cevik', 'Can',45);-- 60 not siniri oldugu icin eklemedi.
+
+
+
+
+
+
 
