@@ -34,26 +34,26 @@ INSERT INTO adresler VALUES('10003','Mutlu Sok', '40.Cad.','IST');
 INSERT INTO adresler VALUES('10003','Can Sok', '50.Cad.','Ankara');
 INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
 
-select * from adresler;
+SELECT * FROM adresler;
+
+INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep'); -->Parent tabloda olmayan id ile child tabloya ekleme yapamayiz.
 
 
-INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep');
---Parent tabloda olmayan id ile child tabloya ekleme yapamayiz.
+INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep'); --> foreign key'e null deger ekledim
 
-INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep');-- foreign key'e null deger ekledim.
 
---calisanlar id ile adresler tablosundaki adres_id ile eslesenlere bakmaak icin
+-- calisanlar id ile adresler tablosundaki adres_id ile eslesenlere gormek icin asagidaki komut
 select * from calisanlar, adresler Where calisanlar.id = adresler.adres_id;
 
  
---Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde tabloyu silmez once child tabloyu silmek gerekir.
+--Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde parent tabloyu silemeyiz once child tabloyu silmek gerekir.
 Drop Table calisanlar;
 
 
-Delete from calisanlar where id = '10002';--Parent table oldugu icin once child'daki foreign'i silemeyiz.
-Delete from adresler where adres_id ='10002'; --Child
+Delete from calisanlar where id = '10002';-- Parent table oldugu icin once child'daki foreign'i silemeyiz.
+Delete from adresler where adres_id ='10002'; -- Child
 
-drop table calisanlar; -- Parent oldugu icin calisanlar tabloyu silemez.
+drop table calisanlar; --> Parent tablo oldugu icin calisanlar tablosunu silemez.
 
 
 -- ON DELETE CASCADE 
