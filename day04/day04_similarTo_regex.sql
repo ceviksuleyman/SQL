@@ -144,7 +144,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    Select * From kelimeler Where kelime Similar To '%[o]{4}%'; -- yan yana 4 o
    
-   select*from kelimeler where kelime ~~* '%o%o%o%o%' -- kelime de 4 o
+   Select * From kelimeler Where kelime ~~* '%o%o%o%o%' -- kelime de 4 o
 
    
    
