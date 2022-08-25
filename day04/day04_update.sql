@@ -1,4 +1,4 @@
---DML -> UPDATE
+--DML -> UPDATE Tabloda veri guncelleme
 
 CREATE TABLE tedarikciler( -- parent
 	vergi_no int PRIMARY KEY,
