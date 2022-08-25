@@ -155,14 +155,4 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
 
    
 
-
-
-
-
-
-
-
-
-
-   
    
