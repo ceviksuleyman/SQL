@@ -20,6 +20,7 @@ INSERT INTO calisanlar VALUES('', 'osman', 2000, '2018-04-14');
 --INSERT INTO calisanlar VALUES( '10002', 'ayse Yılmaz' ,12000, '2018-04-14'); --PRIMARY KEY
 --INSERT INTO calisanlar VALUES( null, 'filiz ' ,12000, '2018-04-14'); -- PRIMARY KEY
 
+Select * From calisanlar;
 
 --FOREIGN KEY
 Create Table adresler(
