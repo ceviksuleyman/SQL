@@ -57,13 +57,35 @@ AGGREGATE METHOD KULLANIMI
 
    
    
-   
    -- TASK-8 : Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
    
    Select marka_id,marka_isim,(Select count(sehir) From calisanlar2 Where marka_isim=isyeri) As sehir_sayisi From markalar;
    
    
    
+   -- TASK-9 : Interview Question: En yüksek ikinci maas değerini çağırın.
+   
+   Select max(maas) As enyuksek_ikinci_maas From calisanlar2
+   Where maas < (Select max(maas) From calisanlar2);
    
    
+   
+   
+   -- TASK-10 : Interview Question: En düşük ikinci maas değerini çağırın.
+   
+   Select min(maas) As endusuk_ikinci_maas From calisanlar2
+   Where maas>(select min(maas) from calisanlar2);
+   
+   
+   
+   -- TASK-11 : En yuksek 3. maas degerini bulun.
+   
+   Select max(maas) As enyuksek_ucuncu_maas From calisanlar2 
+   Where maas<(Select max(maas) From calisanlar2 Where maas<(Select max(maas) From calisanlar2));
+   
+   
+   -- TASK-12 : En dusuk 3. maas degerini bulun.
+   
+   Select min(maas) As endusuk_ucuncu_maas From calisanlar2
+   Where maas>(Select min(maas) From calisanlar2 Where maas>(Select min(maas) From calisanlar2));
    
