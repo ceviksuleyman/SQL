@@ -36,12 +36,34 @@ INSERT INTO nisan VALUES (20, 'Mine', 'Toyota');
 Select * From mart;
 Select * From nisan;
 
-  -- TASK-1 : 
-  -- MART VE NİSAN aylarında aynı URUN_ID ile satılan ürünlerin URUN_ID’lerini listeleyen ve aynı zamanda bu ürünleri 
+  -- TASK-1 : MART VE NİSAN aylarında aynı URUN_ID ile satılan ürünlerin URUN_ID’lerini listeleyen ve aynı zamanda bu ürünleri 
   -- MART ayında alan MUSTERI_ISIM 'lerini listeleyen bir sorgu yazınız.
   
   Select urun_id,musteri_isim From mart
   Where exists(Select urun_id From nisan Where mart.urun_id=nisan.urun_id);
+  
+  
+  
+  -- TASK-2 : Her iki ayda birden satılan ürünlerin URUN_ISIM'lerini ve bu ürünleri NİSAN ayında satın alan MUSTERI_ISIM'lerini 
+  -- listeleyen bir sorgu yazınız.
+  
+  Select urun_isim,musteri_isim From nisan
+  Where exists(Select urun_isim From mart Where mart.urun_isim=nisan.urun_isim);
+  
+  
+  
+  -- TASK-3 : Her iki ayda ortak satilmayan ürünlerin URUN_ISIM'lerini ve  bu ürünleri NİSAN ayında satın alan MUSTERI_ISIM'lerini
+  -- listeleyen bir sorgu yazınız.
+  
+  Select urun_isim,musteri_isim From nisan
+  Where Not Exists(Select urun_isim From mart Where mart.urun_isim=nisan.urun_isim);
+  
+
+
+
+
+
+
 
 
   
