@@ -43,7 +43,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    Select * From kelimeler;
    
-   -- TASK :  İçerisinde 'ot' veya 'at' bulunan kelimeleri listeleyiniz
+   -- TASK-1 :  İçerisinde 'ot' veya 'at' bulunan kelimeleri listeleyiniz
    
    -- 1.yontem SIMILAR TO
    Select * From kelimeler Where kelime Similar To '%(at|ot)%'; --> veya islemi icin  | kullanilir
@@ -57,7 +57,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : 'ho' veya 'hi' ile başlayan kelimeleri listeleyeniz    ******************************************
+   -- TASK-2 : 'ho' veya 'hi' ile başlayan kelimeleri listeleyeniz    ******************************************
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To'ho%|hi%';
@@ -70,7 +70,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : Sonu 't' veya 'm' ile bitenleri listeleyeniz ********************************************
+   -- TASK-3 : Sonu 't' veya 'm' ile bitenleri listeleyeniz ********************************************
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To '%t|%m';
@@ -80,7 +80,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : h ile başlayıp t ile biten 3 harfli kelimeleri listeleyeniz  ********************************************
+   -- TASK-4 : h ile başlayıp t ile biten 3 harfli kelimeleri listeleyeniz  ********************************************
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To 'h[a-z,A-Z,0-9]t';
@@ -93,7 +93,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : İlk karakteri 'h', son karakteri 't' ve ikinci karakteri 'a'dan 'e'ye herhangi bir karakter olan “kelime" değerlerini çağırın.
+   -- TASK-5 : İlk karakteri 'h', son karakteri 't' ve ikinci karakteri 'a'dan 'e'ye herhangi bir karakter olan “kelime" değerlerini çağırın.
    
    --1.yontem Similar To
    Select kelime From kelimeler Where kelime Similar To 'h[a-e]%t';
@@ -103,19 +103,19 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
   
-   -- TASK : İlk karakteri 's', 'a' veya 'y' olan "kelime" değerlerini çağırın.
+   -- TASK-6 : İlk karakteri 's', 'a' veya 'y' olan "kelime" değerlerini çağırın.
    
    Select * From kelimeler Where kelime ~ '^[say](.*)'; -- ^ bastaki karakteri temsil eder.
    
    
    
-   -- TASK : Son karakteri 'm', 'a' veya 'f' olan "kelime" değerlerini çağırın.
+   -- TASK-7 : Son karakteri 'm', 'a' veya 'f' olan "kelime" değerlerini çağırın.
 
    Select * From kelimeler Where kelime ~'(.*)[maf]$'; -- (.*) kullanmasak da ayni sonucu verir.
    
    
    
-   -- TASK : İlk harfi h, son harfi t olup 2.harfi a veya i olan 3 harfli kelimelerin tüm bilgilerini sorgulayalım.
+   -- TASK-8 : İlk harfi h, son harfi t olup 2.harfi a veya i olan 3 harfli kelimelerin tüm bilgilerini sorgulayalım.
    
    Select * From kelimeler Where kelime Similar To 'h[a|i]t';
    
@@ -123,7 +123,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : İlk harfi 'b' den ‘s' ye bir karakter olan ve ikinci harfi herhangi bir karakter olup üçüncü harfi ‘l' olan “kelime" değerlerini çağırın.
+   -- TASK-9 : İlk harfi 'b' den ‘s' ye bir karakter olan ve ikinci harfi herhangi bir karakter olup üçüncü harfi ‘l' olan “kelime" değerlerini çağırın.
    
    Select kelime From kelimeler Where kelime ~ '^[b-s].l(.*)';
    
@@ -132,7 +132,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : içerisinde en az 2 adet oo barindiran kelimelerin tüm bilgilerini listeleyiniz.
+   -- TASK-10 : içerisinde en az 2 adet oo barindiran kelimelerin tüm bilgilerini listeleyiniz.
    
    Select * From kelimeler Where kelime Similar To '%[o][o]%';
    
@@ -140,7 +140,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : içerisinde en az 4 adet oooo barindiran kelimelerin tüm bilgilerini listeleyiniz.
+   -- TASK-11 : içerisinde en az 4 adet oooo barindiran kelimelerin tüm bilgilerini listeleyiniz.
    
    Select * From kelimeler Where kelime Similar To '%[o]{4}%'; -- yan yana 4 o
    
@@ -149,7 +149,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK : 'a', 's' yada 'y' ile başlayan VE 'm' yada 'f' ile biten "kelime" değerlerini çağırın.
+   -- TASK-12 : 'a', 's' yada 'y' ile başlayan VE 'm' yada 'f' ile biten "kelime" değerlerini çağırın.
    
    Select * From kelimeler Where kelime ~ '^[a|s|y](.*)[m|f]$';
 
