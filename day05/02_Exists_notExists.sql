@@ -57,18 +57,4 @@ Select * From nisan;
   
   Select urun_isim,musteri_isim From nisan
   Where Not Exists(Select urun_isim From mart Where mart.urun_isim=nisan.urun_isim);
-  
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-
+ 
