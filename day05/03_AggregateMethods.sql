@@ -45,10 +45,22 @@ AGGREGATE METHOD KULLANIMI
    -- TASK-6 : Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin toplam maaşini listeleyiniz
    
    Select marka_isim,calisan_sayisi,(Select sum(maas) From calisanlar2 Where marka_isim=isyeri) As toplam_maas From markalar;
+   -- NOTES => ALIAS (AS) tabloda gecici isim vermek istersek kosuldan sonra AS sutun_isim olarak kullanılır
+
+
+
+   -- TASK-7 : Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin maksimum ve minumum maaşini listeleyen bir Sorgu yaziniz.
+   
+   Select marka_isim,calisan_sayisi,(Select max(maas) from calisanlar2 where marka_isim=isyeri) AS max_maas,
+                                    (Select min(maas) from calisanlar2 where marka_isim=isyeri) AS min_maas
+                                    from markalar;
 
    
    
    
+   -- TASK-8 : Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
+   
+   Select marka_id,marka_isim,(Select count(sehir) From calisanlar2 Where marka_isim=isyeri) As sehir_sayisi From markalar;
    
    
    
