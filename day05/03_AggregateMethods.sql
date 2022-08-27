@@ -70,7 +70,6 @@ AGGREGATE METHOD KULLANIMI
    
    
    
-   
    -- TASK-10 : Interview Question: En düşük ikinci maas değerini çağırın.
    
    Select min(maas) As endusuk_ikinci_maas From calisanlar2
