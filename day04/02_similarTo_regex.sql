@@ -153,6 +153,4 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    Select * From kelimeler Where kelime ~ '^[a|s|y](.*)[m|f]$';
 
-   
-
-   
+    
