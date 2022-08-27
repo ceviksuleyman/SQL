@@ -28,7 +28,7 @@ Create Table adresler(
 	sokak varchar(20),
 	cadde varchar(30),
 	sehir varchar(20),
-	CONSTRAINT id_pk foreign key (adres_id) references calisanlar(id) -- adres_id  calisanlar id ye baglandi
+	CONSTRAINT id_pk Foreign Key (adres_id) References calisanlar(id) -- adres_id  calisanlar id ye baglandi
 );--CONSTRAINT id_pk bu olmadan da olur kendisi bi isim atar
 
 INSERT INTO adresler VALUES('10003','Mutlu Sok', '40.Cad.','IST');
@@ -37,31 +37,34 @@ INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
 
 SELECT * FROM adresler;
 
-INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep'); -->Parent tabloda olmayan id ile child tabloya ekleme yapamayiz.
+INSERT INTO adresler VALUES('10012','Ağa Sok', '30.Cad.','Antep'); -->Parent tabloda olmayan id ile child tabloya ekleme yapamayiz.!!!
 
 
 INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep'); --> foreign key'e null deger ekledim
 
 
 -- calisanlar id ile adresler tablosundaki adres_id ile eslesenlere gormek icin asagidaki komut
-select * from calisanlar, adresler Where calisanlar.id = adresler.adres_id;
+Select * From calisanlar, adresler Where calisanlar.id = adresler.adres_id;
 
  
 --Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde parent tabloyu silemeyiz once child tabloyu silmek gerekir.
 Drop Table calisanlar;
 
 
-Delete from calisanlar where id = '10002';-- Parent table oldugu icin once child'daki foreign'i silemeyiz.
-Delete from adresler where adres_id ='10002'; -- Child
+Delete From calisanlar Where id = '10002';-- Parent table oldugu icin once child'daki foreign'i silmeliyiz.
 
-drop table calisanlar; --> Parent tablo oldugu icin calisanlar tablosunu silemez.
+Delete From adresler Where adres_id ='10002'; -- Child
+
+
+Drop Table calisanlar; --> Parent tablo oldugu icin calisanlar tablosunu silemez.
+
 
 
 -- ON DELETE CASCADE 
 -- Her defasinda once child tablodaki veirleri silmek yerine ON DELETE CASCADE silme ozelligini aktif hale getirebiliriz.
 -- Bunun icin FK olan satirin en sonuna ON DELETE CASCADE komutunu yazmamiz yeterlidir.
 CREATE TABLE talebeler(
-	id CHAR(3) primary key,
+	ID CHAR(3) Primary Key,
 	isim VARCHAR(50),
 	veli_isim VARCHAR(50),
 	yazili_notu int
@@ -72,14 +75,14 @@ INSERT INTO talebeler VALUES(125, 'Kemal Yasa', 'Hasan',85);
 INSERT INTO talebeler VALUES(126, 'Nesibe Yılmaz', 'Ayse',95);
 INSERT INTO talebeler VALUES(127, 'Mustafa Bak', 'Can',99);
 
-select * from talebeler;
+Select * From talebeler;
 
 CREATE TABLE notlar(
 	talebe_id char(3),
 	ders_adi varchar(30),
 	yazili_notu int,
 	CONSTRAINT notlar_fk FOREIGN KEY (talebe_id) REFERENCES talebeler(id)
-	on delete cascade --Parent tablodan veri silinince direk burdan da silinecek.
+	ON DELETE CASCADE -- >  Parent tablodan veri silinince direk burdan da silinecek.
 );
 
 INSERT INTO notlar VALUES ('123','kimya',75);
@@ -95,21 +98,22 @@ select * from talebeler, notlar Where talebeler.id = notlar.talebe_id; -- Parent
 
 Delete from notlar Where talebe_id = '123'; -- child'den silince parentten silmez.
 Delete from talebeler Where id = '126'; --Parent'ten silince child'den da direk sildi On Delete Cascade ile notlar tablosunu olusturdugumuz icin
+                                        --Parent'ten veriler silinince child'den de silinmis oldu
+										
+Delete From talebeler; -- talebeler tablosundaki verileri sildi
 
-Delete from talebeler; -- Parent'ten veriler silinince child'den de silinmis oldu
-
-Drop table talebeler Cascade;-- Parent tabloyu kaldirmak istersek DROP TABLE tablo_adi'dan sonra CASCADE komutunu kullaniriz.
+Drop Table talebeler Cascade;-- Parent tabloyu kaldirmak istersek DROP TABLE tablo_adi'dan sonra CASCADE komutunu kullaniriz.
 
 
 
 -- TASK : Talebeler tablosundaki isim sutununa  NOT NULL kisitlamasi ekleyiniz ve veri tipini varchar(30) olarak degistirin.
 Alter Table talebeler 
-Alter column isim Type varchar(30), --data turunu degistirdi
-Alter column isim Set Not NULL; -- isim sutununa NOt Null kisiti ekledi
+Alter column isim Type varchar(30), -- data turunu degistirdi
+Alter column isim Set Not NULL; -- isim sutununa Not Null kisiti ekledi
+
 
 
 -- TASK : Talebeler tablosundaki yazili_notu sutununa 60 dan buyuk rakam girilebilsin
-
 Alter Table talebeler
 ADD CONSTRAINT sinir CHECK (yazili_notu > 60);
 -- CHECK => kisitlamasi ile tablodaki istedigimiz sutunu sinirlandirabiliriz.
@@ -127,12 +131,13 @@ create table ogrenciler(
 	sinav_notu int
 );
 
-Create table ogrenci_adres
+Create Table ogrenci_adres
 AS
-SELECT id, adres from ogrenciler;
+SELECT id, adres From ogrenciler;
 
-select * from ogrenciler;
-select * from ogrenci_adres;
+Select * From ogrenciler;
+Select * From ogrenci_adres;
+
 --Tablodaki bir sutuna PRIMARY KEY ekleme *******************************
 ALTER TABLE  ogrenciler
 Add Primary Key(id);
@@ -140,6 +145,7 @@ Add Primary Key(id);
 -- Primary Olusturmada 2. YONTEM
 Alter Table ogrenciler
 Add Constraint pk_id Primary Key(id);
+
 
 -- PK'DAN SONRA FOREIGN KEY ATAMASI 
 

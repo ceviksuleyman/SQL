@@ -10,7 +10,7 @@ CREATE TABLE personel(
 
 -- var olan personel tablosundan pers_id,sehir,adres field'larina sahip yeni bir tablo olusturalim.
 CREATE TABLE personel_adres
-as
+As --gibi
 SELECT pers_id,sehir,adres FROM personel;
 
 SELECT * FROM personel; -- personel tablosunu goster
@@ -34,7 +34,7 @@ INSERT INTO student Values ('1002','Veli Can',35);
 INSERT INTO student Values ('1003','Ayse Can',45);
 INSERT INTO student Values ('1004','Derya Can',55);
 --Tabloya parcali veri ekleme
-INSERT INTO student (st_name,age) values('Murtaza Can',65);
+INSERT INTO student (st_name,age) Values('Murtaza Can',65);
 
 
 
@@ -42,11 +42,11 @@ INSERT INTO student (st_name,age) values('Murtaza Can',65);
 DQL -> Data Query Lang.(Veri Sorgulama Dili)
 SELECT
 */
-select * from student; --> TABLOYU GETIRIR
-select st_name from student; --> Tablodaki isimleri bize getirir
+Select * From student; --> TABLOYU GETIRIR
+Select st_name From student; --> Tablodaki isimleri bize getirir
 
 -- SELECT komutu WHERE kosulu
-select * from student where age>35;--> yas 35 uzeri olanlari getirir
+Select * From student Where age>35;--> yas 35 uzeri olanlari getirir
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -74,8 +74,8 @@ savepoint x; -- begin olmazsa savepoint calismazdi
 insert into ogrenciler2 values (default,'Kemal Can','Murtaza Can',75.5);
 insert into ogrenciler2 values (default,'Mahmut Gul','Hilal Gul',90.5);
 
-rollback to x; -- geri aldik savepoint oncesine dondu
-commit;-- transaction'dan cikmak icin mutlaka calismalidir
+Rollback to x; -- geri aldik savepoint oncesine dondu
+Commit;-- transaction'dan cikmak icin mutlaka calismalidir
 
 select * from ogrenciler2;
 /*
@@ -110,16 +110,16 @@ INSERT INTO ogrenciler VALUES(127, 'Mustafa Bak', 'Can',99);
 INSERT INTO ogrenciler VALUES(127, 'Mustafa Bak', 'Ali', 99);
 
 
--- Soru : id'si 124 olan ogrenciyi silin
+-- TASK : id'si 124 olan ogrenciyi silin
 Delete from ogrenciler where id = 124;
 
--- Soru : ismi Kemal Yasa olan satiri silin
+-- TASK : ismi Kemal Yasa olan satiri silin
 Delete From ogrenciler where isim = 'Kemal Yasa';
 
--- Soru : ismi Nesibe Yilmaz veya Mustafa Bak olan kayitlari silelim
+-- TASK : ismi Nesibe Yilmaz veya Mustafa Bak olan kayitlari silelim
 Delete From ogrenciler where isim = 'Nesibe Yilmaz' or isim = 'Mustafa Bak';
 
--- Soru : ismi Ali Can ve id'si 123 olan kaydi silin.
+-- TASK : ismi Ali Can ve id'si 123 olan kaydi silin.
 Delete From ogrenciler Where isim = 'Ali Can' or id = 123;
 
 -- Tablodaki tum verileri silelim
@@ -156,13 +156,13 @@ select * from personel;
 Alter table personel add cinsiyet varchar(20), add yas int;
 
 
--- Personel tablosundan sirket field'ini silin
+-- TASK : Personel tablosundan sirket field'ini silin
 Alter table personel drop column sirket;
 
--- Personel tablosundaki sehir sutunun adini ulke olarak degistirelim
+-- TASK : Personel tablosundaki sehir sutunun adini ulke olarak degistirelim
 Alter table personel rename column sehir to ulke;
 
--- Personel tablosunun adini isciler olarak degistirin
+-- TASK : Personel tablosunun adini isciler olarak degistirin
 Alter table personel rename to isciler;
 
 select * from isciler;
@@ -248,10 +248,5 @@ select * from calisanlar, adresler Where calisanlar.id = adresler.adres_id;
  
 --Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde tabloyu silmez once child tabloyu silmek gerekir.
 Drop Table calisanlar;
-
-
-
-
-
 
 
