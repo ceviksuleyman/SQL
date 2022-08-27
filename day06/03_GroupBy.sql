@@ -149,3 +149,4 @@ Select * From manav;
    Where maas > 30000
    Group By ulke,cinsiyet
    Order By ort_yas desc ;
+   
