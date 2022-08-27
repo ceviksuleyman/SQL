@@ -103,5 +103,49 @@ Select * From manav;
    
    Select ulke,Round(Avg(maas),2) As ort_maas From personel -- Round -> virgulden sonrasini ayarla 
    Group By ulke;
-
-
+   
+   
+   
+   --TASK-7 : Maas ortalamasını bayanlar ve baylar olarak sorgulayınız
+   
+   Select cinsiyet,Round(Avg(maas),2) As ort_maas From personel
+   Group By cinsiyet;
+   
+   
+   
+   --TASK-8 : Personelin, ulkelere göre ve şehirlere göre gruplayarak sorgulayın
+   
+   Select ulke,sehir From personel
+   Group By ulke,sehir;
+   
+   
+   
+   --TASK-9 : Personelin, ulkelere göre ve şehirler göre calışan sayısını sorgulayın.
+   
+   Select ulke,sehir, Count(sehir) As calisan_sayisi From personel
+   Group By ulke,sehir;
+   
+   
+   
+   --TASK-10 : Her ulke için bay ve bayan çalışan sayısı ve yaş ortalamasını sorgulayınız.
+   
+   Select ulke,cinsiyet,Count(*) As calisan_sayisi,Round(Avg(yas),3) As yas_ort From personel -- * ulke ve cinsiyet birlikte saydi.
+   Group By ulke,cinsiyet;
+   
+   
+   
+   --TASK-11 : Her ulke için bay ve bayan çalışan sayısı ve yaş ortalamasını  ve maası 30000 den büyük olanları sorgulayınız.
+   
+   Select ulke, cinsiyet, Round(Avg(yas)) As ort_yas, Count(*) From personel
+   Where maas > 30000
+   Group By ulke,cinsiyet;
+   
+   
+   
+   --TASK-12 : Her ulke için; bay ve bayan çalışan sayısı, yaş ortalamasını, maaşı 30000 den büyük olanları
+   -- ve ortalama yaşı büyükten küçüğe doğru sıralayınız.
+   
+   Select ulke, cinsiyet, Round(Avg(yas)) As ort_yas, Count(*) As calisan_sayisi From personel
+   Where maas > 30000
+   Group By ulke,cinsiyet
+   Order By ort_yas desc ;
