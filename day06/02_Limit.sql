@@ -41,6 +41,15 @@ Select * From kisiler;
   --TASK-3 : id değeri 5 den büyük olan ilk iki veriyi listeleyiniz
   
   Select * From kisiler Where id>5 limit 2;
-
-
-
+  
+  
+  
+  --TASK-4 : MAAŞ'ı en yüksek 3 kişinin bilgilerini listeleyiniz
+  
+  Select * From kisiler Order By maas desc limit 3;
+  
+  
+  
+  --TASK-5 : En yüksek maaşı alan 4. 5.  6. kişilerin bilgilerini listeleyiniz
+  
+  Select * From kisiler Order By maas desc limit 3 offset 3;
