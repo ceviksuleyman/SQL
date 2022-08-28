@@ -1,3 +1,4 @@
+
 -- SUBQUERIES -> SORGU icinde calisan SORGU'ya(alt sorgu) denir.
 
 CREATE TABLE calisanlar2(
@@ -48,7 +49,3 @@ Where isyeri in(Select marka_isim From markalar Where marka_id>101);
 
 Select marka_id,calisan_sayisi From markalar
 Where marka_isim in(Select isyeri From calisanlar2 Where sehir='Ankara');
-
-
-
-

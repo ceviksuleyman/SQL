@@ -1,10 +1,11 @@
 
 /*
-   GROUP BY - HAVING
+ - GROUP BY - HAVING
 
 HAVING ifadesinin islevi WHERE ifadesi ile cok benzerdir, ancak kumeleme fonksiyonlari ile WHERE ifadesi birlikte
-kullanilmadigindan HAVING ifadesine ihtiyac duyulmustur,GROUP BY ile kullanilir. Gruplamadan sonraki sart icin 
-GROUP BY'dan sonra HAVING kullanilir.
+kullanilmadigindan HAVING ifadesine ihtiyac duyulmustur.
+
+- GROUP BY ile kullanilir. Gruplamadan sonraki sart icin GROUP BY'dan sonra HAVING kullanilir.
 */
 
 create table personel(
@@ -54,12 +55,10 @@ insert into personel values(119, 'Ayten', 'Tan', '32', 'K', 'Roma', 'Italya', '3
   
   
   
-  
   --TASK-2 : Erkek çalışanların sayısı 1’den fazla olan ülkelerin maaş ortalamasını getiren sorgu yazin
   
   Select ulke, Round(Avg(maas)) As ort_maas, Count(cinsiyet) As calisan_sayi From personel
   Where cinsiyet='E'
   Group By ulke 
   Having Count(cinsiyet)>1;
-  
   

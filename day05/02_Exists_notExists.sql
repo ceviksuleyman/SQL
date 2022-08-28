@@ -6,14 +6,12 @@ durumunda islem yapilmasini saglar
 Exists true, false gibidir ,Boolean.
 */
 
-CREATE TABLE mart
-(
+CREATE TABLE mart(
 	urun_id int,
 	musteri_isim varchar(50),
 	urun_isim varchar(50)
 );
-CREATE TABLE nisan
-(
+CREATE TABLE nisan(
 	urun_id int ,
 	musteri_isim varchar(50),
 	urun_isim varchar(50)

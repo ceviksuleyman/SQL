@@ -44,7 +44,7 @@ INSERT INTO kelimeler VALUES (1017, 'bolooot', 5);
    -- TASK-1 :  İçerisinde 'ot' veya 'at' bulunan kelimeleri listeleyiniz
    
    -- 1.yontem SIMILAR TO
-   Select * From kelimeler Where kelime Similar To '%(at|ot)%'; --> veya islemi icin  | kullanilir
+   Select * From kelimeler Where kelime Similar To '%(at|ot|At|aT|Ot|OT)%'; --> 'veya' islemi icin  | kullanilir
    
    -- 2.yontem LIKE 
    Select * From kelimeler Where kelime ilike '%at%' or kelime ilike '%ot%';

@@ -28,6 +28,9 @@ INSERT INTO urunler VALUES(103, 1005,'Phone', 'Canan Ak');
 INSERT INTO urunler VALUES(104, 1006,'TV', 'Ali Bak');
 INSERT INTO urunler VALUES(104, 1007,'Phone', 'Aslan Yılmaz');
 
+Select * From tedarikciler;
+Select * From urunler;
+
 
 -- TASK-1 : vergi_no’su 102 olan tedarikcinin firma ismini 'Vestel' olarak güncelleyeniz.
 
@@ -78,10 +81,3 @@ Where musteri_isim = 'Ali Bak';
 Update urunler
 Set musteri_isim = (Select irtibat_ismi From tedarikciler Where firma_ismi = 'Apple')
 Where urun_isim = 'Laptop';
-
-
-Select * From tedarikciler;
-Select * From urunler;
-
-
-
