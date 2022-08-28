@@ -51,19 +51,11 @@ Select * From calisanlar, adresler Where calisanlar.id = adresler.adres_id;
  
 --Parent tabloyu yani Primary key olan tabloyu silmek istedigimizde parent tabloyu silemeyiz once child tabloyu silmek gerekir.
 
-Drop Table calisanlar;
-
-
-
 Delete From calisanlar Where id = '10002';-- Parent table oldugu icin once child'daki foreign'i silmeliyiz.
-
 
 Delete From adresler Where adres_id ='10002'; -- Child
 
-
-
 Drop Table calisanlar; --> Parent tablo oldugu icin calisanlar tablosunu silemez.
-
 
 
 -- ON DELETE CASCADE 
