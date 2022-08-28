@@ -13,35 +13,33 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
 *  ~* => buyuk kucuk harf  
 */
 
+CREATE TABLE kelimeler(	   	 
+	id int,	   	 
+	kelime VARCHAR(50),	   
+	harf_sayisi int   
+);
 
-   CREATE TABLE kelimeler(
-	id int,
-	
-	kelime VARCHAR(50),
-	
-	harf_sayisi int
-   );
-
-   INSERT INTO kelimeler VALUES (1001, 'hot', 3);
-   INSERT INTO kelimeler VALUES (1002, 'hat', 3);
-   INSERT INTO kelimeler VALUES (1003, 'hit', 3);
-   INSERT INTO kelimeler VALUES (1004, 'hbt', 3);
-   INSERT INTO kelimeler VALUES (1005, 'hct', 3);
-   INSERT INTO kelimeler VALUES (1006, 'adem', 4);
-   INSERT INTO kelimeler VALUES (1007, 'selim', 5);
-   INSERT INTO kelimeler VALUES (1008, 'yusuf', 5);
-   INSERT INTO kelimeler VALUES (1009, 'hip', 3);
-   INSERT INTO kelimeler VALUES (1010, 'HOT', 3);
-   INSERT INTO kelimeler VALUES (1011, 'hOt', 3);
-   INSERT INTO kelimeler VALUES (1012, 'h9t', 3);
-   INSERT INTO kelimeler VALUES (1013, 'hoot', 4);
-   INSERT INTO kelimeler VALUES (1014, 'haaat', 5);
-   INSERT INTO kelimeler VALUES (1015, 'hooooot', 5);
-   INSERT INTO kelimeler VALUES (1016, 'booooot', 5);
-   INSERT INTO kelimeler VALUES (1017, 'bolooot', 5);
-   
+INSERT INTO kelimeler VALUES (1001, 'hot', 3);
+INSERT INTO kelimeler VALUES (1002, 'hat', 3);
+INSERT INTO kelimeler VALUES (1003, 'hit', 3);
+INSERT INTO kelimeler VALUES (1004, 'hbt', 3);
+INSERT INTO kelimeler VALUES (1005, 'hct', 3);
+INSERT INTO kelimeler VALUES (1006, 'adem', 4);
+INSERT INTO kelimeler VALUES (1007, 'selim', 5);
+INSERT INTO kelimeler VALUES (1008, 'yusuf', 5);
+INSERT INTO kelimeler VALUES (1009, 'hip', 3);
+INSERT INTO kelimeler VALUES (1010, 'HOT', 3);
+INSERT INTO kelimeler VALUES (1011, 'hOt', 3);
+INSERT INTO kelimeler VALUES (1012, 'h9t', 3);
+INSERT INTO kelimeler VALUES (1013, 'hoot', 4);
+INSERT INTO kelimeler VALUES (1014, 'haaat', 5);
+INSERT INTO kelimeler VALUES (1015, 'hooooot', 5);
+INSERT INTO kelimeler VALUES (1016, 'booooot', 5);
+INSERT INTO kelimeler VALUES (1017, 'bolooot', 5);
+  
    
    Select * From kelimeler;
+   
    
    -- TASK-1 :  İçerisinde 'ot' veya 'at' bulunan kelimeleri listeleyiniz
    
@@ -57,7 +55,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK-2 : 'ho' veya 'hi' ile başlayan kelimeleri listeleyeniz    ******************************************
+   -- TASK-2 : 'ho' veya 'hi' ile başlayan kelimeleri listeleyeniz    
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To'ho%|hi%';
@@ -70,7 +68,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK-3 : Sonu 't' veya 'm' ile bitenleri listeleyeniz ********************************************
+   -- TASK-3 : Sonu 't' veya 'm' ile bitenleri listeleyeniz
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To '%t|%m';
@@ -80,7 +78,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   -- TASK-4 : h ile başlayıp t ile biten 3 harfli kelimeleri listeleyeniz  ********************************************
+   -- TASK-4 : h ile başlayıp t ile biten 3 harfli kelimeleri listeleyeniz 
    
    -- 1.yontem Similar To
    Select * From kelimeler Where kelime Similar To 'h[a-z,A-Z,0-9]t';
@@ -102,7 +100,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    Select kelime From kelimeler Where kelime ~* 'h[a-e](.*)t';
    
    
-  
+ 
    -- TASK-6 : İlk karakteri 's', 'a' veya 'y' olan "kelime" değerlerini çağırın.
    
    Select * From kelimeler Where kelime ~ '^[say](.*)'; -- ^ bastaki karakteri temsil eder.
@@ -131,7 +129,6 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
    
    
    
-   
    -- TASK-10 : içerisinde en az 2 adet oo barindiran kelimelerin tüm bilgilerini listeleyiniz.
    
    Select * From kelimeler Where kelime Similar To '%[o][o]%';
@@ -148,9 +145,7 @@ bir soz dizimi olan bir yapidir. MySQL'de (REGEXP_LIKE) olarak kullanilir.
 
    
    
-   
    -- TASK-12 : 'a', 's' yada 'y' ile başlayan VE 'm' yada 'f' ile biten "kelime" değerlerini çağırın.
    
    Select * From kelimeler Where kelime ~ '^[a|s|y](.*)[m|f]$';
-
-    
+   
