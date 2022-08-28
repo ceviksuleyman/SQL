@@ -10,8 +10,10 @@ CREATE TABLE personel(
 
 -- var olan personel tablosundan pers_id,sehir,adres field'larina sahip yeni bir tablo olusturalim.
 CREATE TABLE personel_adres
-As --gibi
+As -- gibi
 SELECT pers_id,sehir,adres FROM personel;
+
+Select * From personel_adres;
 
 SELECT * FROM personel; -- personel tablosunu goster
 

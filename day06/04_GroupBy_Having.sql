@@ -57,7 +57,7 @@ insert into personel values(119, 'Ayten', 'Tan', '32', 'K', 'Roma', 'Italya', '3
   
   --TASK-2 : Erkek çalışanların sayısı 1’den fazla olan ülkelerin maaş ortalamasını getiren sorgu yazin
   
-  Select ulke, Round(Avg(maas)) As ort_maas, Count(cinsiyet) As calisan_sayi From personel
+  Select ulke, Round(Avg(maas)) As ort_maas, Count(cinsiyet) As calisan_sayisi From personel
   Where cinsiyet='E'
   Group By ulke 
   Having Count(cinsiyet)>1;
