@@ -66,7 +66,7 @@ Her defasinda once child tablodaki veirleri silmek yerine ON DELETE CASCADE silm
 Bunun icin FOREIGN KEY olan satirin en sonuna ON DELETE CASCADE komutunu yazmamiz yeterlidir.
 */
 
-CREATE TABLE talebeler(
+CREATE TABLE talebeler( -- PARENT TABLO
 	ID CHAR(3) Primary Key,
 	isim VARCHAR(50),
 	veli_isim VARCHAR(50),
@@ -78,7 +78,7 @@ INSERT INTO talebeler VALUES(125, 'Kemal Yasa', 'Hasan',85);
 INSERT INTO talebeler VALUES(126, 'Nesibe Yılmaz', 'Ayse',95);
 INSERT INTO talebeler VALUES(127, 'Mustafa Bak', 'Can',99);
 
-CREATE TABLE notlar(
+CREATE TABLE notlar( -- Child TABLO
 	talebe_id char(3),
 	ders_adi varchar(30),
 	yazili_notu int,
@@ -97,7 +97,7 @@ Select * From notlar;
 Select * From talebeler, notlar Where talebeler.id = notlar.talebe_id; -- Parent ve child tabloyu birlikte gosterir.
 
 
-Delete from notlar Where talebe_id = '123'; -- On Delete Cascade tabloya eklenmediginde child'den silince parentten silmez.
+Delete from notlar Where talebe_id = '123'; -- child'den silince parentten silmez.
 
 Delete from talebeler Where id = '126'; --Parent'ten silince child'den da direk sildi On Delete Cascade ile notlar tablosunu olusturdugumuz icin
                                         --Parent'ten veriler silinince child'den de silinmis oldu
@@ -106,7 +106,7 @@ Delete From talebeler; -- talebeler tablosundaki verileri sildi
 
 Drop Table talebeler Cascade;-- Parent tabloyu kaldirmak istersek DROP TABLE tablo_adi'dan sonra CASCADE komutunu kullaniriz.
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 -- TASK-1 : Talebeler tablosundaki isim sutununa  NOT NULL kisitlamasi ekleyiniz ve veri tipini varchar(30) olarak degistirin.
 Alter Table talebeler 
@@ -116,8 +116,13 @@ Alter column isim Set Not NULL; -- isim sutununa Not Null kisiti ekledi
 
 -- TASK-2 : Talebeler tablosundaki yazili_notu sutununa 60 dan buyuk rakam girilebilsin
 Alter Table talebeler
-ADD CONSTRAINT sinir CHECK (yazili_notu > 60);
+ADD CONSTRAINT sinir CHECK (yazili_notu > 60); -- CHECK => kisitlamasi ile tablodaki istedigimiz sutunu sinirlandirabiliriz.
 
-
--- CHECK => kisitlamasi ile tablodaki istedigimiz sutunu sinirlandirabiliriz.
 INSERT INTO talebeler VALUES(128, 'Suleyman Cevik', 'Can',45);-- 60 not siniri oldugu icin eklemedi.
+
+-- TASK-3 : yazili Notu 85 den buyuk olan talebe bilgilerini getirin
+Select * From talebeler Where yazili_notu > 85;
+
+
+-- TASK-4 : ismi Mustafa Bak olan talebenin tum bilgilerini getirin
+Select * From talebeler Where isim = 'Mustafa Bak';
