@@ -47,4 +47,36 @@ Select * From personel Where isim ~~* '%n';
 Select * From personel Where email ~~ '%gmail.com';
 
 --TASK-10 : email adresi gmail olmayan personel bilgilerini listeleyiniz.
-Select * From personel Where email Not Like '%gmail.com';
+Select * From personel Where email Not Like '%gmail.com'; -- ifade aradigimiz icin Null gelmedi
+
+--TASK-11 : id'si 3,5,7 ve 9 olan personel bilgilerini listeleyiniz.
+Select * From personel Where id IN(3,5,7,9);
+Select * From personel Where id= 3 or id=5 or id=7 or id=9;
+
+--TASK-12 : yaşı 39,48 ve 54 olmayan personel bilgilerini listeleyiniz.
+Select * From personel Where yas Not IN(39,48,54);
+
+--TASK-13 : yaşı 30 ve 40 arasında olan personel bilgilerini listeleyiniz.
+Select * From personel Where yas Between 30 And 40;
+Select * From personel Where yas>30 And yas<40
+
+--TASK-14 : yaşı 30 ve 40 arasında olmyan personel bilgilerini listeleyiniz.
+Select * From personel Where yas NOT Between 30 And 40;
+
+--TASK-15 : emaili null olan personel bilgilerini listeleyiniz.
+Select * From personel Where email is Null;
+
+--TASK-16 : personel bilgilerini yaşa göre sıralayınız.
+Select * From personel Order By yas; -- naturel order - kucukten buyuge siralar - asc yazmasakta siralar.
+
+--TASK-17 : personel bilgilerini maaşa göre sıralayınız.
+Select * From personel Order By maas;
+
+--TASK-18 : personelin yaşlarını büyükten küçüğe doğru sıralayınız.
+Select * From personel Order By yas desc; -- buyukten kucuge siralar - desc
+
+--TASK-19 : personelin maaşlarını büyükten küçüğe doğru sıralayınız.
+Select * From personel Order By maas desc;
+
+--TASK-20 : En yüksek maaş olan ilk 3 personel bilgilerini sıralayınız
+Select * From personel Order By maas desc Limit 3;
