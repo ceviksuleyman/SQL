@@ -42,3 +42,9 @@ Select * From personel Where isim ~~* 'a%'; -- (~~*)ILIKE  %-> a'dan sonra ne va
 
 --TASK-8 : ismi n harfi ile biten personel bilgilerini listeleyiniz.
 Select * From personel Where isim ~~* '%n'; 
+
+--TASK-9 : email adresi gmail olan personel bilgilerini listeleyiniz.
+Select * From personel Where email ~~ '%gmail.com';
+
+--TASK-10 : email adresi gmail olmayan personel bilgilerini listeleyiniz.
+Select * From personel Where email Not Like '%gmail.com';
