@@ -18,3 +18,15 @@ Add Column company_industry varchar(30);
 --TASK-2 : TABLOYA worker_address sütunu ve defaullt olarakta 'Miami, FL, USA' adresini ekleyiniz.
 Alter Table workers
 Add Column worker_address varchar(30) default 'Miami, FL, USA';
+
+--TASK-3 : tablodaki worker_address sütununu siliniz
+Alter Table workers
+Drop Column worker_address;
+
+--TASK-4 : Tablodaki company_industry sütununu, company_profession olarak değiştiriniz.
+Alter Table workers
+Rename Column company_industry To company_profession;
+
+--TASK-5 : Tablonun ismini employees olarak değişitiriniz.
+Alter Table workers Rename To employees;
+Select * From employees;
