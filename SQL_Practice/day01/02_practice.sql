@@ -30,3 +30,11 @@ Rename Column company_industry To company_profession;
 --TASK-5 : Tablonun ismini employees olarak değişitiriniz.
 Alter Table workers Rename To employees;
 Select * From employees;
+
+--TASK-6 : Tablodaki title sütununa data tipini VARCHAR(50) olarak değiştiriniz.
+Alter Table employees
+Alter title Type varchar(50);
+
+-- Tablodaki title sütununa "UNIQUE" kıstlaması ekleyiniz.
+Alter Table employees
+Add Constraint title_uniq Unique(title); -- title_uniq -> kisitlamaya verdigimiz herhangi bir isim 
