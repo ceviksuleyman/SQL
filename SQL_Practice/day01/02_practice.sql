@@ -35,6 +35,6 @@ Select * From employees;
 Alter Table employees
 Alter title Type varchar(50);
 
--- Tablodaki title sütununa "UNIQUE" kıstlaması ekleyiniz.
+--TASK-7 : Tablodaki title sütununa "UNIQUE" kıstlaması ekleyiniz.
 Alter Table employees
 Add Constraint title_uniq Unique(title); -- title_uniq -> kisitlamaya verdigimiz herhangi bir isim 
