@@ -14,6 +14,7 @@ INSERT INTO personel6 VALUES(456789012, 'Brad Pitt', 'Texas', 1500, 'TD BANK');
 INSERT INTO personel6 VALUES(123456719, 'Adem Stone', 'New Jersey', 2500, 'IBM');
 
 SELECT * FROM personel6;
+
 CREATE TABLE isciler (
 	id int,
 	isim varchar(50), 
@@ -31,8 +32,11 @@ INSERT INTO isciler VALUES(123456710, 'Mark Stone', 'texas', 2500, 'IBM');
 
 SELECT * FROM isciler;
 
--- 1) Her iki tablodaki ortak id’leri ve personel6 tablosunda bu id’ye sahip isimleri
+-- TASK-1 : Her iki tablodaki ortak id’leri ve personel6 tablosunda bu id’ye sahip isimleri
 -- isme gore sirali olarak listeleyen query yaziniz
+SELECT id,isim FROM personel6 
+WHERE Exists(Select id From isciler Where isciler.id=personel6.id) Order BY isim;
+
 
 -- 2) Personel6 tablosunda kac tane kayit oldugunu gosteren query yazin
 
