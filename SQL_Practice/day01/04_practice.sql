@@ -41,3 +41,14 @@ in(Select marka_isim From markalar Where calisan_sayisi>15000);
 Select isim,maas,sehir From calisanlar
 Where isyeri 
 in(Select marka_isim From markalar Where marka_id>101);
+
+
+-- TASK-3 : Ankara’da calisani olan markalarin marka id'lerini ve calisan sayilarini listeleyiniz.
+  
+      
+-- TASK-4 : Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin toplam maaşini listeleyen bir Sorgu yaziniz.
+ 
+-- TASK-5 : Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin ortalama maaşini listeleyen bir Sorgu yaziniz.
+-- TASK-6 : Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin maksimum ve minumum maaşini listeleyen bir Sorgu yaziniz.
+-- TASK-7 : Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
+
