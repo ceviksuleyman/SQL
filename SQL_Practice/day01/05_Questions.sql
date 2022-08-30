@@ -35,13 +35,28 @@ SELECT * FROM isciler;
 -- TASK-1 : Her iki tablodaki ortak id’leri ve personel6 tablosunda bu id’ye sahip isimleri
 -- isme gore sirali olarak listeleyen query yaziniz
 SELECT id,isim FROM personel6 
-WHERE Exists(Select id From isciler Where isciler.id=personel6.id) Order BY isim;
+WHERE Exists(Select id From isciler Where isciler.id=personel6.id) 
+Order BY isim;
 
 
 -- 2) Personel6 tablosunda kac tane kayit oldugunu gosteren query yazin
+SELECT Count(id) As Kayit_Sayisi
+FROM personel6;
+
 
 -- 3)Isciler tablosunda en yuksek maasi alan kisinin tum bilgilerini gosteren query yazin
+SELECT * FROM isciler
+WHERE maas=(SELECT Max(maas) FROM isciler);
+
 
 -- 4) Isciler tablosunda ikinci en yuksek maasi maasi gosteren query yazin
+SELECT Max(maas) As "En Yuksek 2. Maas" 
+FROM isciler 
+WHERE maas<(SELECT Max(maas) FROM isciler);
 
- --5) Isciler tablosunda ikinci en yuksek maasi alan kisinin tum bilgilerini listeleyen sorgu yaziniz
+
+--5) Isciler tablosunda ikinci en yuksek maasi alan kisinin tum bilgilerini listeleyen sorgu yaziniz
+SELECT * FROM isciler
+WHERE maas<(SELECT max(maas) FROM isciler)
+Order By maas Desc Limit 1;
+

@@ -24,17 +24,30 @@ SELECT * FROM students;
 
 --TASK-1 : 101 id öğrencinin ismini 'LEO OCEAN' olarak güncelleyinin
 Update students 
-Set student_name = 'LEO OCEAN' Where student_id='101';
+Set student_name = 'LEO OCEAN'
+Where student_id='101';
+
+--TASK-2 : 109 idli öğrencinin doğumtarihini 2010-12-11 olarak update yapın.
+Update students 
+Set student_dob='2010-12-11'  
+Where student_id='109';
+
+--TASK-3 : ilk iki veriden sonra 5 veriyi listeleyiniz
+SELECT * FROM students Limit 5 Offset 2;
 
 
+--TASK-4 : yasi en buyyuk 4. 5.  6. kişilerin bilgilerini listeleyiniz
+SELECT * FROM students Limit 3 Offset 3; 
 
--- TASK-2 : 101 id öğrencinin yasini 22 olarak güncelleyinin
--- update students set student_age=21 where  student_id='101';--hata vercek kisitlama var
 
--- 101 id öğrencinin ismini 'ALI CAN' olarak güncelleyinin
+--TASK-5 : 101 id öğrencinin ismini 'ALI CAN' olarak güncelleyinin
+UPDATE students
+SET student_name = 'ALI CAN'
+WHERE student_id = '101';
 
--- 109 idli öğrencinin doğumtarihini 2010-12-11 olarak update yapın.
 
--- ilk iki veriden sonra 5 veriyi listeleyiniz
+--TASK-6 : 101 id öğrencinin yasini 22 olarak güncelleyinin
+UPDATE students 
+Set student_age=21 
+WHERE  student_id='101'; --hata vercek kisitlama var
 
--- yasi en buyyuk 4. 5.  6. kişilerin bilgilerini listeleyiniz
