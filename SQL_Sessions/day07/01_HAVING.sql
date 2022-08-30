@@ -53,3 +53,15 @@ SELECT name,company
 FROM workers
 Order By Length(company);
 
+
+--TASK-7 : Tüm name ve state değerlerini aynı sütunda çağırarak her bir sütun değerinin uzunluğuna göre sıralayın.
+--1.Yontem
+SELECT CONCAT(name,' ',state) As "Name and State"
+FROM workers
+Order By Length(name)+Length(state);
+
+--2.Yontem
+SELECT name||' '||state||' '||Length(name) + Length(state) AS name_and_state
+FROM workers
+Order By Length(name)+Length(state);
+
