@@ -73,3 +73,16 @@ SELECT name
 FROM workers
 WHERE company IN('IBM', 'APPLE', 'MICROSOFT');
 
+
+
+--TASK-5 : salary değeri 3000'den az ve GOOGLE'da çalışmayan  name değerlerini bulun.
+SELECT name
+FROM workers
+WHERE salary<3000  -- burdakileri ver.
+
+EXCEPT --> EXCEPT Operator => Bir sorgu sonucundan başka bir sorgu sonucunu çıkarmak için kullanılır. Unique(tekrarsız) recordları verir.
+
+SELECT name
+FROM workers
+WHERE company = 'GOOGLE'; -- bunlar haric 
+
