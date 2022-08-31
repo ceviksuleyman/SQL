@@ -22,6 +22,24 @@ SELECT * FROM sirketler;
 SELECT * FROM siparisler;
 
 
---TASK-1 : Iki Tabloda sirket_id’si ayni olanlarin; sirket_ismi, siparis_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
+--TASK-1 : Iki Tabloda sirket_id’si ayni olanlarin; sirket_ismi, siparis_id ,sirket_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
+SELECT A.sirket_id,A.sirket_isim,B.siparis_id,B.siparis_tarihi 
+FROM siparisler AS B
+INNER JOIN sirketler AS A
+ON B.sirket_id=A.sirket_id;
+
+
+--TASK-2 : sirketler tablosundaki tum sirketleri ve bu sirketlere ait olan siparis_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
+SELECT B.sirket_id,B.sirket_isim,A.siparis_tarihi,A.siparis_id 
+FROM sirketler AS B
+LEFT JOIN siparisler AS A
+ON A.sirket_id = B.sirket_id;
+
+-- iki sorgu da ayni cevabi getirir.
+
+SELECT A.sirket_id,A.sirket_isim,B.siparis_tarihi,B.siparis_id
+FROM siparisler B 
+RIGHT JOIN sirketler A
+on A.sirket_id = B.sirket_id;
 
 
