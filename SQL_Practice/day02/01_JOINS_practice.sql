@@ -43,3 +43,23 @@ RIGHT JOIN sirketler A
 on A.sirket_id = B.sirket_id;
 
 
+-- UNION
+SELECT A.sirket_id,A.sirket_isim,B.siparis_tarihi,B.siparis_id 
+FROM sirketler AS A
+LEFT JOIN siparisler AS B
+ON A.sirket_id = B.sirket_id
+
+UNION
+
+SELECT A.sirket_id,A.sirket_isim,B.siparis_tarihi,B.siparis_id
+FROM siparisler B 
+RIGHT JOIN sirketler A
+on A.sirket_id = B.sirket_id;
+
+
+--TASK-3 : siparisler tablosundaki tum siparis_id ve siparis_tarihleri ile bunlara karşılık gelen sirket_isimlerini listeleyen bir sorgu yaziniz.
+SELECT A.sirket_id,A.sirket_isim,B.siparis_tarihi,B.siparis_id 
+FROM sirketler AS A
+FULL JOIN siparisler AS B
+On A.sirket_id = B.sirket_id;
+
