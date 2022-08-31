@@ -45,7 +45,9 @@ Having Min(Salary)>2000;
 
 --TASK-5 : Tekrarsız isimleri çağırın.
 SELECT Distinct name 
-FROM workers; -->DISTINCT => Cagirilan terimlerden tekrarli olanlarin sadece ilkini alir.
+FROM workers; 
+
+--> DISTINCT => Cagirilan terimlerden tekrarli olanlarin sadece ilkini alir.
 
 
 --TASK-6 : Name değerlerini company kelime uzunluklarına göre sıralayın.
@@ -56,7 +58,7 @@ Order By Length(company);
 
 --TASK-7 : Tüm name ve state değerlerini aynı sütunda çağırarak her bir sütun değerinin uzunluğuna göre sıralayın.
 
--- CONCAT() sembol olarak || kullanir. => Birden fazla sutun veya String degerini birlestirmek icin kullanilir.
+--CONCAT() sembol olarak || kullanir. => Birden fazla sutun veya String degerini birlestirmek icin kullanilir.
 
 --1.Yontem
 SELECT CONCAT(name,' ',state) As "Name and State"

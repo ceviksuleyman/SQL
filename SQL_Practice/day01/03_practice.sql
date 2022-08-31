@@ -48,6 +48,6 @@ WHERE student_id = '101';
 
 --TASK-6 : 101 id öğrencinin yasini 22 olarak güncelleyinin
 UPDATE students 
-Set student_age=21 
+Set student_age=22 
 WHERE  student_id='101'; --hata vercek kisitlama var
 
